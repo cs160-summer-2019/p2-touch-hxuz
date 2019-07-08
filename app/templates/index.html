@@ -84,7 +84,71 @@
 		</div>
 	</div>
 	<script>
-	  // your solution here
+    //var tapb = document.getElementById('tap-box');
+    //var swib = document.getElementById('swipe-box');
+    
+    //Rotate
+    var rotb = document.getElementById('rotate-box');
+    var rm = new Hammer.Manager(rotb);
+    var rotate = new Hammer.Rotate();
+    rm.add([rotate]);
+    rm.get('rotate').set({enable: true}); 
+    rm.on("rotate", function() {
+      rotb.style = "color: red; font-weight: bold";
+      rotb.textContent = "Rotated!";
+      rotb.style.transform = "rotate(45deg)";
+      rotb.style.backgroundColor = "white";
+    });
+    
+    //Pinch
+    var pinb = document.getElementById('pinch-box');
+    var pm = new Hammer.Manager(pinb);
+    var pinch = new Hammer.Pinch();
+    pm.add([pinch]);
+    pm.get('pinch').set({enable: true}); 
+    pm.on("pinch", function() {
+      pinb.style = "color: red; font-weight: bold";
+      pinb.textContent = "Pinched!";
+      pinb.style.transform = "scale(1.5)";
+      pinb.style.backgroundColor = "white";
+    });
+    
+    //Press
+    var preb = document.getElementById('press-box');
+    var prem = new Hammer(preb);
+    prem.on("press", function() {
+      preb.style = "color: red; font-weight: bold";
+      preb.textContent = "Pressed!";
+      preb.style.backgroundColor = "yellow";
+    });
+    
+    //Pan
+    var panb = document.getElementById('pan-box');
+    var panm = new Hammer(panb);
+    panm.on("pan", function() {
+      panb.style = "color: red; font-weight: bold";
+      panb.textContent = "Panned!";
+      panb.style.backgroundColor = "white";
+    });
+    
+    //Tap
+    var tapb = document.getElementById('tap-box');
+    var tm = new Hammer(tapb);
+    tm.on("tap", function() {
+      tapb.style = "color: grey; font-weight: bold";
+      tapb.textContent = "Tapped!";
+      tapb.style.backgroundColor = "silver";
+    });
+    
+    //Swipe
+    var swib = document.getElementById('swipe-box');
+    var sm = new Hammer(swib);
+    sm.on("swipe", function() {
+      swib.style = "color: black; font-weight: bold; text-decoration: line-through";
+      swib.textContent = "Swipped!";
+      swib.style.backgroundColor = "white";
+    });
+    
   </script>
 </body>
 </html>
